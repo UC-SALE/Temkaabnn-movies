@@ -2,94 +2,85 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Temkaa bnn movies</title>
 
 <style>
 
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-    margin:0;
-    font-family:Arial, sans-serif;
+    font-family:Arial;
     background:#0b0b0b;
     color:white;
 }
 
-
-/* Header */
-
+/* HEADER */
 header{
     background:linear-gradient(90deg,#e50914,#8b0000);
-    padding:20px;
+    padding:15px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    flex-wrap:wrap;
 }
 
 .logo{
-    font-size:28px;
+    font-size:24px;
     font-weight:bold;
 }
 
-
 .search{
-    padding:10px;
+    padding:8px 12px;
     border-radius:20px;
     border:none;
+    outline:none;
 }
 
-
-/* Hero */
-
+/* HERO */
 .hero{
-    height:450px;
+    height:380px;
     background:
-    linear-gradient(#0006,#000),
+    linear-gradient(#0007,#000),
     url("model.jpg") center/cover;
-
     display:flex;
     align-items:end;
-    padding:40px;
+    padding:25px;
 }
-
 
 .hero h1{
-    font-size:50px;
+    font-size:40px;
 }
 
-
-/* Movies */
-
+/* MOVIES */
 .movies{
-    padding:30px;
+    padding:20px;
 }
-
 
 .card{
     background:#1c1c1c;
     width:260px;
     display:inline-block;
-    margin:15px;
+    margin:10px;
     padding:15px;
     border-radius:20px;
-    transition:.3s;
+    transition:0.3s;
 }
-
 
 .card:hover{
     transform:scale(1.05);
 }
 
-
 .card img{
     width:100%;
-    height:320px;
+    height:300px;
     object-fit:cover;
     border-radius:15px;
 }
-
 
 button{
     width:100%;
@@ -98,12 +89,11 @@ button{
     color:white;
     border:0;
     border-radius:20px;
+    margin-top:10px;
     cursor:pointer;
 }
 
-
-/* Popup */
-
+/* POPUP */
 .guide{
     display:none;
     position:fixed;
@@ -111,43 +101,71 @@ button{
     left:50%;
     transform:translate(-50%,-50%);
     background:#222;
-    width:350px;
-    padding:25px;
+    width:400px;
+    padding:20px;
     border-radius:20px;
     box-shadow:0 0 30px black;
 }
 
-
-.guide img{
-    width:100%;
-    border-radius:15px;
+.guide h2{
+    margin-bottom:10px;
 }
 
+.info{
+    background:#111;
+    padding:15px;
+    border-radius:15px;
+    margin-top:10px;
+    line-height:1.8;
+}
 
 .close{
-    background:#555;
     margin-top:10px;
+    background:#555;
+}
+
+/* MOBILE FULL SCREEN */
+@media(max-width:768px){
+
+.hero h1{
+    font-size:28px;
+}
+
+.card{
+    width:100%;
+}
+
+.guide{
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    transform:none;
+    border-radius:0;
+    padding:20px;
+    font-size:18px;
+}
+
+.guide h2{
+    font-size:30px;
+    text-align:center;
+}
+
 }
 
 </style>
 
 </head>
 
-
 <body>
-
 
 <header>
 
-<div class="logo">
-🎬 Temkaa bnn movies
-</div>
-
+<div class="logo">🎬 Temkaa bnn movies</div>
 
 <input class="search" placeholder="Кино хайх...">
 
 </header>
-
 
 
 <section class="hero">
@@ -157,61 +175,58 @@ button{
 </section>
 
 
-
 <section class="movies">
 
-<h2>🔥 Шилдэг кинонууд</h2>
-
+<h2 style="padding:10px;">🔥 Шилдэг кинонууд</h2>
 
 <div class="card">
 
 <img src="movie1.jpg">
 
-<h2>№1 Модель цагдаа</h2>
+<h3>№1 Модель цагдаа</h3>
 
 <p>Action • 2026</p>
 
-<button onclick="openGuide()">
-Захиалах
-</button>
+<button onclick="openGuide()">Захиалах</button>
 
 </div>
-
 
 
 <div class="card">
 
 <img src="movie2.jpg">
 
-<h2>Шинэ кино</h2>
+<h3>Шинэ кино</h3>
 
 <p>Drama • HD</p>
 
-<button onclick="openGuide()">
-Захиалах
-</button>
+<button onclick="openGuide()">Захиалах</button>
 
 </div>
-
-
 
 </section>
 
 
-
+<!-- POPUP -->
 <div class="guide" id="guide">
 
 <h2>🎥 Кино захиалах заавар</h2>
 
-<img src="guide.jpg">
+<div class="info">
 
+<p><b>Банк:</b> Khanbank</p>
 
-<button class="close" onclick="closeGuide()">
-Хаах
-</button>
+<p><b>IBAN:</b> MN490005005466571864</p>
+
+<p><b>Данс:</b> 5466571864</p>
+
+<p><b>Гүйлгээний утга:</b> киноны код (утасны дугаар)</p>
 
 </div>
 
+<button class="close" onclick="closeGuide()">Хаах</button>
+
+</div>
 
 
 <script>
@@ -220,13 +235,11 @@ function openGuide(){
 document.getElementById("guide").style.display="block";
 }
 
-
 function closeGuide(){
 document.getElementById("guide").style.display="none";
 }
 
 </script>
-
 
 </body>
 </html>
